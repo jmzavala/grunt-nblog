@@ -21,11 +21,11 @@ var slugify = require('slugify');
 module.exports = function(grunt) {
   grunt.registerMultiTask('nblog', 'Create categories files.', function() {
     var options = this.options({
-      categories_path : 'categories',
-      home_path: 'index'
+      categoriesPath : 'categories',
+      homePath: 'index'
 
     });
-    var categories_tmp={},
+    var categoriesTmp={},
         posts = [];
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
@@ -52,8 +52,8 @@ module.exports = function(grunt) {
             var i =0;
             while (i < cat.length){           
                 c = cat[i].toLowerCase();
-                categories_tmp[c]=categories_tmp[c]||[];
-                categories_tmp[c].push(description);
+                categoriesTmp[c]=categoriesTmp[c]||[];
+                categoriesTmp[c].push(description);
                 i+=1;
             } 
             
@@ -62,11 +62,11 @@ module.exports = function(grunt) {
       });      
     });
     
-    for (var key in categories_tmp) {
-      if (categories_tmp.hasOwnProperty(key)) {
-        grunt.file.write(options.categories_path+"/"+key+'_category.json',JSON.stringify(categories_tmp[key]));
+    for (var key in categoriesTmp) {
+      if (categoriesTmp.hasOwnProperty(key)) {
+        grunt.file.write(options.categoriesPath+"/"+key+'_category.json',JSON.stringify(categoriesTmp[key]));
       }
     }
-        grunt.file.write(options.home_path+"/index.json",JSON.stringify(posts));
+        grunt.file.write(options.homePath+"/index.json",JSON.stringify(posts));
   });
 };

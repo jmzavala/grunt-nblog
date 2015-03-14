@@ -33,7 +33,8 @@ module.exports = function(grunt) {
       main: {
         options:
         {
-          categories_path:'tmp/categories/'
+          categoriesPath:'tmp/categories/',
+          homePath:'tmp/index/'
         },
         files:{
           'tmp/posts/' :['test/posts/*']

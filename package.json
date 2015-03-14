@@ -1,7 +1,7 @@
 {
   "name": "grunt-nblog",
   "description": "Create categories files.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://github.com/jmzavala/grunt-nblog",
   "author": {
     "name": "Juan Manuel Zavala",
